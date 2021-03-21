@@ -1,4 +1,5 @@
-FROM node:14.16.0-buster-slim@sha256:ffc15488e56d99dbc9b90d496aaf47901c6a940c077bc542f675ae351e769a12
+# FROM node:14.16.0-buster-slim@sha256:ffc15488e56d99dbc9b90d496aaf47901c6a940c077bc542f675ae351e769a12
+FROM node:10.6.0
 ARG APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
 RUN apt-get update
 RUN apt-get install -y wget gnupg ca-certificates procps libxss1 --fix-missing
@@ -16,7 +17,7 @@ WORKDIR /app
 
 RUN npm install
 
-RUN npm install puppeteer
+RUN npm install puppeteer@2.0.0
 
 EXPOSE 3000
 
